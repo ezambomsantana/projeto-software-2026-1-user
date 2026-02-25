@@ -51,23 +51,24 @@ Comandos úteis do PSQL
 
 Para executar a aplicação com o Docker
 
-1 - Lembrar de mudar o DNS do BD -> Linhas 6 do main.py
-2 - Executar o comando docker build na raiz do projeto
+1 - Criar Dockerfile
+2 - Lembrar de mudar o DNS do BD -> Linhas 6 do main.py
+3 - Executar o comando docker build na raiz do projeto
 
 ```
 docker build -t {nome_usuario_docker_hub}/app_users .
 ```
 
-3 - Testar local
+4 - Testar local
 
 ```
-docker run -p 5000:5000 --network=rede --name app_users {nome_usuario_docker_hub}/app_users
+docker run -p 5000:5000 --network=rede --name app_users -d {nome_usuario_docker_hub}/app_users
 ```
 
-4 - Subir para o DockerHub
+5 - Subir para o DockerHub
 
 ```
 docker push {nome_usuario_docker_hub}/app_users
 ```
 
-5 - Executar na máquina da AWS o `docker run`. Lembre que a porta 5000 está bloqueada na AWS, tente usar a porta 80 -> 80:5000
+6 - Executar na máquina da AWS o `docker run`. Lembre que a porta 5000 está bloqueada na AWS, tente usar a porta 80 -> 80:5000
